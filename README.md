@@ -1,2 +1,8 @@
-# pon
-Planning Poker Service.
+# Pon
+
+## Usage
+
+```sh
+bun server.ts
+bun dev
+```
