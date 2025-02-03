@@ -12,23 +12,25 @@ const UserInput: React.FC = () => {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h1>Welcome to Planning Poker</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Enter your name"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    style={{ padding: '10px', fontSize: '16px' }}
-                />
-                <button
-                    type="submit"
-                    style={{ padding: '10px 20px', marginLeft: '10px', fontSize: '16px' }}
-                >
-                    Start
-                </button>
-            </form>
+        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-96">
+                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Let's Pon !</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            placeholder="Enter your name"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm"
+                        />
+                    </div>
+                    <button type="submit" className="w-full bg-sky-500 text-white py-2 px-4 rounded-md shadow hover:bg-sky-600">
+                        Start
+                    </button>
+
+                </form>
+            </div>
         </div>
     );
 };
