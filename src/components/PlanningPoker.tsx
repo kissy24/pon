@@ -75,57 +75,71 @@ const PlanningPoker: React.FC = () => {
     };
 
     return (
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <h1>Planning Poker</h1>
-            <h2>Welcome, {username}!</h2>
-
-            <div style={{ margin: "20px 0" }}>
-                {fibonacciNumbers.map((num) => (
+        <div className="flex items-center justify-center">
+            <div className="grid grid-cols-3 gap-8">
+                <div className="col-span-3 text-center pt-6">
+                    <div className="text-2xl">Planing Poker Pon !</div>
+                    <div className="text-l">Welcome, {username}</div>
                     <button
-                        key={num}
-                        onClick={() => handleSelect(num)}
-                        style={{ margin: "5px", padding: "10px 15px", fontSize: "16px" }}
+                        onClick={handleBack}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
-                        {num}
+                        Leave
                     </button>
-                ))}
-            </div>
+                </div>
 
-            <div>
-                <h3>Selections:</h3>
-                <ul>
-                    {selections.map(({ username, value }) => (
-                        <li key={username}>
-                            {username}: {value}
-                        </li>
+                <div className="col-span-full text-center">
+                    {fibonacciNumbers.map((num) => (
+                        <button
+                            key={num}
+                            onClick={() => handleSelect(num)}
+                            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold m-1 py-4 px-6 border border-gray-400 rounded shadow"
+                        >
+                            {num}
+                        </button>
                     ))}
-                </ul>
-            </div>
+                </div>
 
-            {selections.length >= 2 && <h3>Average: {calculateAverage()}</h3>}
-
-            <div>
-                <h3>Active Users:</h3>
-                <ul>
+                <div className="col-span-full bg-white p-2 rounded-lg shadow-lg">
+                    <div className="m-2 text-xl">Active Users</div>
                     {activeUsers.map((user) => (
-                        <li key={user}>{user}</li>
+                        <span key={user} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{user}</span>
                     ))}
-                </ul>
-            </div>
+                </div>
 
-            <div style={{ marginTop: "20px" }}>
-                <button
-                    onClick={handleClear}
-                    style={{ margin: "5px", padding: "10px 20px", fontSize: "16px" }}
-                >
-                    Clear
-                </button>
-                <button
-                    onClick={handleBack}
-                    style={{ margin: "5px", padding: "10px 20px", fontSize: "16px" }}
-                >
-                    Back
-                </button>
+                <div className="col-span-2 bg-white p-2 rounded-lg shadow-lg">
+                    <div className="m-2 text-xl">Selections</div>
+                    <table className="border-collapse border-none w-full text-m text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead className="text-m">
+                            <tr>
+                                <th className="px-6 py-3">User</th>
+                                <th className="px-6 py-3">Point</th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-m">
+                            {selections.map(({ username, value }) => (
+                                <tr key={username}>
+                                    <td className="px-6 py-3">{username}</td>
+                                    <td className="px-6 py-3">{value}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <button
+                        onClick={handleClear}
+                        className="m-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                        Clear
+                    </button>
+                </div>
+
+                <div className="col-span-1 bg-white p-2 rounded-lg shadow-lg">
+                    <div className="m-2 text-xl">Average</div>
+                    <div>
+                        {selections.length >= 2 && <div className="text-center justify-center text-4xl p-8">{calculateAverage()}</div>}
+                    </div>
+                </div>
+
             </div>
         </div>
     );

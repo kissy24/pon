@@ -12,7 +12,7 @@ const UserInput: React.FC = () => {
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg shadow-lg w-96">
                 <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Let's Pon !</h2>
                 <form onSubmit={handleSubmit}>
