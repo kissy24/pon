@@ -10,6 +10,33 @@ type UserSelection = {
 let selections: UserSelection[] = [];
 let activeUsers: Set<string> = new Set();
 
+// 選択の処理
+const handleSelectNumber = (username: string, value: number) => {
+    selections = selections.filter((s) => s.username !== username);
+    selections.push({ username, value });
+    broadcast({ type: "update-selections", data: selections });
+};
+
+// クリアの処理
+const handleClearSelections = () => {
+    selections = [];
+    broadcast({ type: "update-selections", data: selections });
+};
+
+// ログインの処理
+const handleLogin = (username: string) => {
+    activeUsers.add(username);
+    broadcast({ type: "active-users", data: Array.from(activeUsers) });
+};
+
+// ログアウトの処理
+const handleLogout = (username: string) => {
+    activeUsers.delete(username);
+    selections = selections.filter((s) => s.username !== username);
+    broadcast({ type: "update-selections", data: selections });
+    broadcast({ type: "active-users", data: Array.from(activeUsers) });
+};
+
 wss.on("connection", (ws) => {
     console.log("A client connected");
 
@@ -18,29 +45,16 @@ wss.on("connection", (ws) => {
 
         switch (parsed.type) {
             case "select-number":
-                const { username, value } = parsed.data;
-                selections = selections.filter((s) => s.username !== username);
-                selections.push({ username, value });
-                broadcast({ type: "update-selections", data: selections });
+                handleSelectNumber(parsed.data.username, parsed.data.value);
                 break;
-
             case "clear-selections":
-                selections = [];
-                broadcast({ type: "update-selections", data: selections });
+                handleClearSelections();
                 break;
-
             case "login":
-                const loginUsername = parsed.data.username;
-                activeUsers.add(loginUsername);
-                broadcast({ type: "active-users", data: Array.from(activeUsers) });
+                handleLogin(parsed.data.username);
                 break;
-
             case "logout":
-                const logoutUsername = parsed.data.username;
-                activeUsers.delete(logoutUsername);
-                selections = selections.filter((s) => s.username !== logoutUsername);
-                broadcast({ type: "update-selections", data: selections });
-                broadcast({ type: "active-users", data: Array.from(activeUsers) });
+                handleLogout(parsed.data.username);
                 break;
         }
     });
