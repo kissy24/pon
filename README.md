@@ -9,8 +9,13 @@ Pon ! is a web-based Planning Poker tool for agile estimation.Users can select F
 ## Setup
 
 ```sh
+# server
 bun server.ts
-bun dev
+```
+
+```sh
+# web
+bun run dev
 ```
 
 ## Usage
