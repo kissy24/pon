@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/github/license/kissy24/pon)
 
+![Image](https://github.com/user-attachments/assets/7a6afa92-1a24-49ef-831f-3cdd2bc473da)
+
 ## Overview
 
 Pon ! is a web-based Planning Poker tool for agile estimation.Users can select Fibonacci numbers to estimate tasks, and the system calculates the average when at least two users participate.The application supports real-time interactions with WebSocket and displays active users.
