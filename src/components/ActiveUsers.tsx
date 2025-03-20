@@ -1,18 +1,25 @@
 import React from "react";
+import { User } from "lucide-react";
 
-type Props = {
+interface ActiveUsersProps {
     activeUsers: string[];
-};
+}
 
-export const ActiveUsers: React.FC<Props> = ({ activeUsers }) => {
+export const ActiveUsers: React.FC<ActiveUsersProps> = ({ activeUsers }) => {
     return (
-        <div className="col-span-full bg-white p-4 rounded-lg shadow-lg">
-            <div className="text-xl font-bold">Active Users</div>
-            {activeUsers.map((user) => (
-                <span key={user} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    {user}
-                </span>
-            ))}
+        <div className="space-y-2">
+            {activeUsers.length === 0 ? (
+                <p className="text-gray-400">No active users</p>
+            ) : (
+                activeUsers.map((user, index) => (
+                    <div key={index} className="flex items-center bg-gray-800 p-2 rounded-md shadow-sm">
+                        <User className="w-5 h-5 text-gray-300 mr-2" />
+                        <span className="text-white">{user}</span>
+                    </div>
+                ))
+            )}
         </div>
     );
 };
+
+export default ActiveUsers;
