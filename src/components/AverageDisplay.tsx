@@ -1,4 +1,5 @@
 import React from "react";
+import { ChartPie } from "lucide-react";
 
 type Props = {
     average: number | null;
@@ -16,9 +17,9 @@ export const AverageDisplay: React.FC<Props> = ({ average }) => {
     const { label, color } = getLabel(average);
 
     return (
-        <div className="col-span-1 bg-white p-4 rounded-lg shadow-lg text-center">
-            <div className="text-2xl font-bold text-gray-500">Average</div>
-            <div className="text-3xl font-extrabold text-gray-700">
+        <div className="col-span-1 bg-gray-600 p-6 rounded-xl shadow-lg text-white text-center">
+            <h2 className="text-2xl font-bold mb-4 flex justify-center items-center"><ChartPie className="mr-2" />Average</h2>
+            <div className="text-3xl font-extrabold">
                 {average !== null ? average.toFixed(1) : "---"}
             </div>
             <div className={`text-8xl font-extrabold ${color}`}>{label}</div>

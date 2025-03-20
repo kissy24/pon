@@ -16,9 +16,9 @@ export const NumberSelection: React.FC<Props> = ({ onSelect }) => {
     };
 
     return (
-        <div className="col-span-full text-center">
-            <h2 className="text-lg font-semibold mb-4 flex justify-center items-center">
-                <Dice5 className="w-5 h-5 mr-2" /> Select a Number
+        <div className="col-span-full text-center bg-gray-600 p-6 rounded-xl shadow-lg text-white">
+            <h2 className="text-2xl font-bold mb-4 flex justify-center items-center">
+                <Dice5 className="mr-2" /> Select a Number
             </h2>
 
             <div className="flex space-x-2 overflow-x-auto scrollbar-hide px-2 py-2">
@@ -28,8 +28,8 @@ export const NumberSelection: React.FC<Props> = ({ onSelect }) => {
                         onClick={() => handleSelect(num)}
                         className={`py-3 px-5 rounded-lg text-lg font-semibold transition-all shadow-md border 
                             ${selectedNumber === num
-                                ? "bg-blue-500 text-white border-blue-700 scale-110 shadow-lg"
-                                : "bg-gray-900 text-white border-gray-700 hover:bg-gray-700 hover:scale-105"
+                                ? "bg-blue-500 text-white border-blue-500 scale-110 shadow-lg"
+                                : "bg-gray-800 text-white border-gray-800 hover:bg-gray-400 hover:scale-105"
                             }`}
                     >
                         {num}

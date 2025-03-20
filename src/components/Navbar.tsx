@@ -7,7 +7,7 @@ export const Navbar: React.FC = () => {
 
     return (
         <nav className="bg-gray-700 text-white p-4 flex justify-between items-center shadow-md">
-            <div className="text-2xl font-bold">Planning Poker Pon</div>
+            <div className="text-2xl font-bold">Planning Poker Pon !</div>
             <button
                 onClick={() => navigate("/")}
                 className="flex items-center space-x-2 px-4 py-2 bg-gray-500 hover:bg-gray-600 rounded-lg transition"

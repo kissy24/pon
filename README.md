@@ -1,8 +1,11 @@
 # Pon !
 
+<h3 align="center">
+  <img src="public/pon.ico" width="200">
+<h3>
+
 ![](https://img.shields.io/github/license/kissy24/pon)
 
-![Image](https://github.com/user-attachments/assets/7a6afa92-1a24-49ef-831f-3cdd2bc473da)
 
 ## Overview
 
@@ -33,6 +36,16 @@ bun run dev
 - Frontend: React, TypeScript, Tailwind CSS
 - Backend: WebSocket Server (Node.js with Bun)
 - Build Tool: Vite
+
+## Gallery
+
+### Login Page
+
+![Image](https://github.com/user-attachments/assets/7266895f-cf64-4cdf-9805-fde46aa8c7a8)
+
+### PlaningPoker Page
+
+![Image](https://github.com/user-attachments/assets/28a96132-c4b2-4e1e-a0c7-524bf36e5d3f)
 
 ## Author
 

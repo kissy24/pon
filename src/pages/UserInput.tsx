@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import icon from '../assets/pon.png';
 
 const UserInput: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -13,8 +14,8 @@ const UserInput: React.FC = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Let's Pon !</h2>
+            <div className="bg-white p-10 rounded-lg shadow-lg w-108">
+                <img src={icon} alt="Pon! Icon" className="w-auto h-auto" />
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <input
@@ -25,8 +26,8 @@ const UserInput: React.FC = () => {
                             className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm"
                         />
                     </div>
-                    <button type="submit" className="w-full bg-sky-500 text-white py-2 px-4 rounded-md shadow hover:bg-sky-600">
-                        Start
+                    <button type="submit" className="w-full font-bold bg-sky-500 text-white py-2 px-4 rounded-md shadow hover:bg-sky-600">
+                        Login
                     </button>
 
                 </form>
